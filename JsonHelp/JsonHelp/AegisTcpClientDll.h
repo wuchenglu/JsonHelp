@@ -5,11 +5,6 @@
 // AEGISTCPCLIENTDLL_API 函数视为是从 DLL 导入的，而此 DLL 则将用此宏定义的
 // 符号视为是被导出的。
 #pragma once
-#ifdef AEGISTCPCLIENTDLL_EXPORTS
-#define AEGISTCPCLIENTDLL_API __declspec(dllexport)
-#else
-#define AEGISTCPCLIENTDLL_API __declspec(dllimport)
-#endif
 #include<iostream>
 #include"windows.h"  
 #include <iostream>
@@ -26,7 +21,7 @@ DWORD WINAPI sendThread(void* param);
 void WriteLog();
 void WriteLog1();
 // 此类是从 AegisTcpClientDll.dll 导出的
-class AEGISTCPCLIENTDLL_API  CAegisTcpClientDll {
+class  CAegisTcpClientDll {
 private:
 	// 接收线程信号量
 	HANDLE hRecvThread;
@@ -64,4 +59,3 @@ public:
 	bool IsCanReceiveData();
 
 };
-extern "C" AEGISTCPCLIENTDLL_API CAegisTcpClientDll* AegisTcpClientInterface();

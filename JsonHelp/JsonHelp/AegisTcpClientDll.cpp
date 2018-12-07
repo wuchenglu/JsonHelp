@@ -1,5 +1,5 @@
 // AegisTcpClientDll.cpp : 定义 DLL 应用程序的导出函数。
-//
+#include "stdafx.h"
 #include "AegisTcpClientDll.h"
 bool IsConnected = false;
 HANDLE hEvent;
@@ -21,8 +21,8 @@ CAegisTcpClientDll::CAegisTcpClientDll()
 	ofstream ofresult1;
 	ofresult1.open("./Log.txt ");
 	ofresult1.close();
-	receiveData = (char*)malloc(5);		  //free(recvBuff);
-	memset(receiveData, 0, 5);
+	receiveData = (char*)malloc(1024);		  //free(recvBuff);
+	memset(receiveData, 0, 1024);
 	ip = 0;
 	port = 0;
 	return;
@@ -384,12 +384,12 @@ char* CAegisTcpClientDll::GetReviceData()
 	if (isCanGetData)
 	{
 		isCanGetData = false;
-		memcpy(receiveData, recvBuff, 5);
+		memcpy(receiveData, recvBuff, 1024);
 		return receiveData;
 	}
 	else
 	{
-		memset(receiveData, 0, 5);
+		memset(receiveData, 0, 1024);
 		return receiveData;
 	}
 }

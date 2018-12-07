@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AegisTcpClientDll.h" />
     <ClInclude Include="autolink.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="features.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="writer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AegisTcpClientDll.cpp" />
     <ClCompile Include="JsonHelp.cpp" />
     <ClCompile Include="json_reader.cpp" />
     <ClCompile Include="json_value.cpp" />
